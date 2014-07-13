@@ -1,0 +1,25 @@
+{
+  "name": "GmailDemo",
+  "version": "1.0.0",
+  "authors": [
+    "Mfawa Alfred Onen <muffycompoqm@gmail.com>"
+  ],
+  "description": "Gmail API Demo Project",
+  "keywords": [
+    "Gmail",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": ">= 3.0",
+    "jquery": ">= 1.9.0",
+    "summernote": "~0.5.1"
+  }
+}
