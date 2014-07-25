@@ -1,14 +1,10 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GMail API Demo</title>
+    <title>GMail API PHP Starter</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,12 +30,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">MyMail</a>
+            <a class="navbar-brand" href="#">MyGMail</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:;"><span class="text-danger">Mfawa Alfred Onen</span></a></li>
-                <li><a href="?logout">Logout</a></li>
+                <li class="active"><a href="?logout">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
