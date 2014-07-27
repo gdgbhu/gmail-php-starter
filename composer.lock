@@ -1,0 +1,219 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a8e3f83d8892d74899b281359cb9c1d7",
+    "packages": [
+        {
+            "name": "google/apiclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/google-api-php-client.git",
+                "reference": "fa3a2dcbef5a2233cfaa9c6fe28bae57c03b6465"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/fa3a2dcbef5a2233cfaa9c6fe28bae57c03b6465",
+                "reference": "fa3a2dcbef5a2233cfaa9c6fe28bae57c03b6465",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src/"
+            ],
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Client library for Google APIs",
+            "homepage": "http://developers.google.com/api-client-library/php",
+            "keywords": [
+                "google"
+            ],
+            "time": "2014-07-25 07:55:11"
+        },
+        {
+            "name": "pear/mail_mime",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Mail_Mime.git",
+                "reference": "407c330caf79ae36090c5ad6ed8b6fc8954d2828"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/407c330caf79ae36090c5ad6ed8b6fc8954d2828",
+                "reference": "407c330caf79ae36090c5ad6ed8b6fc8954d2828",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mail": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD Style"
+            ],
+            "authors": [
+                {
+                    "name": "Cipriano Groenendal",
+                    "email": "cipri@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Aleksander Machniak",
+                    "email": "alec@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Mail_Mime",
+            "time": "2014-05-14 08:27:27"
+        },
+        {
+            "name": "pear/mail_mime-decode",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dreamfactorysoftware/Mail_mimeDecode.git",
+                "reference": "a53c1ce051b212e23f7f67ea8d31015640de1129"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dreamfactorysoftware/Mail_mimeDecode/zipball/a53c1ce051b212e23f7f67ea8d31015640de1129",
+                "reference": "a53c1ce051b212e23f7f67ea8d31015640de1129",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mail_mimeDecode": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cipriano Groenendal",
+                    "email": "cipri@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Aleksander Machniak",
+                    "email": "alec@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Mail_mimeDecode",
+            "time": "2014-04-15 19:29:16"
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/PEAR_Exception.git",
+                "reference": "d5a3e9597040dcc56a4a2053a605e07214951202"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/d5a3e9597040dcc56a4a2053a605e07214951202",
+                "reference": "d5a3e9597040dcc56a4a2053a605e07214951202",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=4.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PEAR": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "The PEAR Exception base class.",
+            "homepage": "https://github.com/pear/PEAR_Exception",
+            "keywords": [
+                "exception"
+            ],
+            "time": "2014-02-21 17:39:41"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "google/apiclient": 20,
+        "pear/mail_mime": 20,
+        "pear/mail_mime-decode": 20,
+        "pear/pear_exception": 20
+    },
+    "platform": [],
+    "platform-dev": []
+}

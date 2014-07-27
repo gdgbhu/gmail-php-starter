@@ -1,3 +1,4 @@
+<?php include('gmail.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,51 +31,88 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">MyGMail</a>
+            <a class="navbar-brand" href="<?php echo $_SERVER['PHP_SELF']; ?>">MyGMail</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="?logout">Logout</a></li>
+                <?php if(isset($loginUrl)) { ?>
+                    <li class="active"><a href="<?php echo $loginUrl; ?>"><i class="glyphicon glyphicon-log-in"></i> Sign In</a></li>
+                <?php } else { ?>
+                    <li class="active"><a href="?logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+                <?php } ?>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 
 <div class="container">
-    <h1>Compose Email</h1>
-
+    <?php if(isset($loginUrl) || $authException) { ?>
     <div class="row">
         <div class="col-lg-8">
+            <a class="btn btn-primary" href="<?php echo $loginUrl; ?>"><i class="glyphicon glyphicon-log-in"></i> Login to MyGMail</a>
+        </div>
+    </div>
+    <?php } else { ?>
+
+    <div class="row">
+        <?php echo $notice; ?>
+
+        <div class="col-lg-8">
+            <h3>Compose Email</h3>
             <div class="well well-lg">
 
-                <form role="form">
+                <form role="form" name="gmail-form" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="To:">
+                        <input type="email" class="form-control" id="to" name="to" placeholder="To:">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Cc:">
+                        <input type="email" class="form-control" id="cc" name="cc" placeholder="Cc:">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Bcc:">
+                        <input type="email" class="form-control" id="bcc" name="bcc" placeholder="Bcc:">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subject:">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject:">
                     </div>
                     <div class="form-group">
-                        <textarea name="email" id="email" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Send</button>
-                        <button type="submit" class="btn btn-info">Save Draft</button>
+                        <button type="submit" class="btn btn-success pull-right" name="send">
+                            <i class="glyphicon glyphicon-play"></i>
+                            Send
+                        </button>
+                        <button type="submit" class="btn btn-info" name="draft">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            Save as Draft
+                        </button>
                     </div>
                 </form>
 
             </div>
         </div>
         <div class="col-lg-4">
-        <p>Enter a valid email address in the To, Cc, or Bcc fields to receive emails from GMail.</p>
+            <h3>Inbox</h3>
+            <ul class="list-group">
+                <?php if(count($inboxMessage) > 0) { ?>
+                    <?php foreach($inboxMessage as $item) { ?>
+                        <li class="list-group-item">
+                            <?php echo $item['messageSubject']; ?>
+                            <a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox/<?php echo $item['messageId']; ?>" target="_blank">Read message</a>
+                        </li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="list-group-item">Your inbox is empty.</li>
+                <?php } ?>
+                <li class="list-group-item">
+                    <a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox" target="_blank">See all messages</a>
+                </li>
+            </ul>
         </div>
     </div>
+        <?php } ?>
+
 
 </div><!-- /.container -->
 
@@ -86,7 +124,7 @@
 <script src="bower_components/summernote/dist/summernote.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#email').summernote({
+        $('#message').summernote({
             height: 150,
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
