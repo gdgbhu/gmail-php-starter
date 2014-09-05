@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="bower_components/summernote/dist/summernote.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
 

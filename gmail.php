@@ -112,11 +112,21 @@ try
         $list = $service->users_messages->listUsersMessages('me',['maxResults' => 5, 'q' => 'is:inbox']);
         $messageList = $list->getMessages();
 
+        $client->setUseBatch(true);
+        $batch = new Google_Http_Batch($client);
+
+        foreach($messageList as $mlist){
+            $batch->add($service->users_messages->get('me',$mlist->id,['format' => 'raw']),$mlist->id);
+        }
+
+        $batchMessages = $batch->execute();
+
         $inboxMessage = [];
-        foreach($messageList as $dMessage){
+
+        foreach($batchMessages as $dMessage){
             $messageId = $dMessage->id;
-            $gMessage = $service->users_messages->get('me',$messageId,['format' => 'raw']);
-            $dcMessage = base64url_decode($gMessage->getRaw());
+//            $gMessage = $service->users_messages->get('me',$messageId,['format' => 'raw']);
+            $dcMessage = base64url_decode($dMessage->getRaw());
 
             $mimeDecode = new Mail_mimeDecode($dcMessage);
             $mimeSubject = $mimeDecode->decode()->headers['subject'];
