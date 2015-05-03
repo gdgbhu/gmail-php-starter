@@ -98,16 +98,17 @@
                 <?php if(count($inboxMessage) > 0) { ?>
                     <?php foreach($inboxMessage as $item) { ?>
                         <li class="list-group-item">
-                            <?php echo $item['messageSubject']; ?>
+                            <?php echo $item['messageSubject']; ?><br>
                             <a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox/<?php echo $item['messageId']; ?>" target="_blank">Read message</a>
                         </li>
                     <?php } ?>
+                    <li class="list-group-item" style="text-align: center;">
+                        <a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox" target="_blank">See all messages</a>
+                    </li>
                 <?php } else { ?>
                     <li class="list-group-item">Your inbox is empty.</li>
                 <?php } ?>
-                <li class="list-group-item">
-                    <a href="https://mail.google.com/mail/u/0/?tab=wm&pli=1#inbox" target="_blank">See all messages</a>
-                </li>
+
             </ul>
         </div>
     </div>

@@ -108,34 +108,52 @@ try
             }
         }
 
-        // Inbox Messages
-        $list = $service->users_messages->listUsersMessages('me',['maxResults' => 5, 'q' => 'is:inbox']);
+        /**
+         * Get the list of message ids and filter only messages in inbox under the primary category tab
+         * Also limit the result to 5 and return only the message ids
+         */
+        $list = $service->users_messages->listUsersMessages('me',['maxResults' => 5, 'fields' => 'messages/id', 'q' => 'in:inbox category:primary']);
         $messageList = $list->getMessages();
 
+        /**
+         * Enable Batch Request to ease up on our HTTP Requests
+         */
         $client->setUseBatch(true);
         $batch = new Google_Http_Batch($client);
 
-        foreach($messageList as $mlist){
-            $batch->add($service->users_messages->get('me',$mlist->id,['format' => 'raw']),$mlist->id);
-        }
+        /**
+         * Prepare batch request for getting user messages
+         */
+         foreach($messageList as $mlist){
+             $batch->add($service->users_messages->get('me',$mlist->id,['format' => 'raw']),$mlist->id);
+         }
 
-        $batchMessages = $batch->execute();
+        /**
+         * Execute the Batch Request
+         */
+         $batchMessages = $batch->execute();
 
-        $inboxMessage = [];
+         $inboxMessage = [];
 
-        foreach($batchMessages as $dMessage){
-            $messageId = $dMessage->id;
-//            $gMessage = $service->users_messages->get('me',$messageId,['format' => 'raw']);
-            $dcMessage = base64url_decode($dMessage->getRaw());
+        /**
+         * Create a new Mime Mail Parser Instance ready to decode raw message content
+         */
+        $mimeDecode = new PhpMimeMailParser\Parser();
 
-            $mimeDecode = new Mail_mimeDecode($dcMessage);
-            $mimeSubject = $mimeDecode->decode()->headers['subject'];
+         foreach($batchMessages as $dMessage){
+             $messageId = $dMessage->id;
+             $gMessage = $service->users_messages->get('me',$messageId,['format' => 'raw']);
+             $dcMessage = base64url_decode($dMessage->getRaw());
 
-            $inboxMessage[] = [
-                'messageId' => $messageId,
-                'messageSubject' => $mimeSubject
-            ];
-        }
+             $mimeDecode->setText($dcMessage);
+             $mimeSubject = $mimeDecode->getHeader('subject');
+
+             $inboxMessage[] = [
+                 'messageId' => $messageId,
+                  'messageSubject' => $mimeSubject
+             ];
+         }
+
     }
 
 }

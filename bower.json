@@ -1,13 +1,14 @@
 {
-  "name": "GmailDemo",
+  "name": "GmailAPIStarter",
   "version": "1.0.0",
   "authors": [
     "Mfawa Alfred Onen <muffycompoqm@gmail.com>"
   ],
-  "description": "Gmail API Demo Project",
+  "description": "Gmail API PHP Starter Project",
   "keywords": [
     "Gmail",
-    "Bootstrap"
+    "Bootstrap",
+    "GDG Bingham University"
   ],
   "license": "MIT",
   "ignore": [

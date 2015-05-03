@@ -1,11 +1,18 @@
 {
     "name": "gdgbhu/GmailDemo",
-    "description": "GMail API Demo",
+    "description": "GMail API PHP Starter",
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/muffycompo/php-mime-mail-parser"
+      }
+    ],
     "require": {
         "google/apiclient": "dev-master",
         "pear/mail_mime": "dev-master",
         "pear/mail_mime-decode": "dev-master",
-        "pear/pear_exception": "dev-master"
+        "pear/pear_exception": "dev-master",
+        "php-mime-mail-parser/php-mime-mail-parser": "dev-master"
     },
     "config": {
         "preferred-install": "dist"
